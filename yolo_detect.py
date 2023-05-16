@@ -64,8 +64,8 @@ class yolo_detect():
         self.save_log = False
 
         self.mask_classes = ['Without_Mask', 'With_Mask', 'Wrong_Mask']
-        # self.thub_address = 'http://192.168.50.136:7878/'
-        self.thub_address = 'http://ics.thubiot.com/api/ics/rcvFeverCamData'
+        # self.thub_address = ip
+        self.thub_address = 'ip'
 
         self.mp = torch.multiprocessing.get_context('spawn')
         self.model_init()
@@ -115,7 +115,7 @@ class yolo_detect():
             print('cv2_debug_img_error')
 
     def yolo_model_and_thub_send(self):
-        IP = '192.168.50.136'
+        IP = 'my_ip'
         PORT = 28283
         SIZE = 1024
         ADDR = (IP, PORT)
