@@ -15,7 +15,7 @@ limiter = Limiter(app=app,key_func=get_remote_address, default_limits=["10 per s
 @limiter.limit('6 per second')
 def flask_get():
     date = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
-    SERVER_IP = '192.168.50.136'
+    SERVER_IP = 'my_ip'
     SERVER_PORT = 28283
     SERVER_ADDR = (SERVER_IP, SERVER_PORT)
     history_amount = 9999
@@ -23,8 +23,7 @@ def flask_get():
     detect_imgs = request.files.getlist('file')
     device_name = request.values.getlist('deviceID')[0]
 
-    path = f"C:/Users/abc/Desktop/신종감염병/yolov5/files/{device_name}/{date}"
-    # path_for_rm = f"C:/Users/abc/Desktop/신종감염병/yolov5/files/hyo/{device_name}"
+    path = f"./{device_name}/{date}"
     input_path = f"{path}/input"
     os.makedirs(input_path, exist_ok=True)
 
